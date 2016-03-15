@@ -116,4 +116,3 @@ func main(){
 	mergeList(names)
 	fmt.Println("done")
 }
-
