@@ -184,7 +184,7 @@ func process(filePath string, jump int, end int, bufferSize int) (int,error){
 	defer inFile.Close()
   	sc := bufio.NewScanner(inFile)
   	//Running the loop till the file is not over, or the end is not met
-	for sc.Scan(){
+	for currentLine<end && sc.Scan(){
 		if(currentLine%jump==0 && currentLine !=0 ){
 			//fmt.Println(currentLine)
 			sortAndWriteToFile(tempList, strconv.Itoa(currentLine))
@@ -197,7 +197,10 @@ func process(filePath string, jump int, end int, bufferSize int) (int,error){
 	sortAndWriteToFile(tempList, strconv.Itoa(currentLine))
 	names = append(names,strconv.Itoa(currentLine))
 	tempList = make([]string, 0)
-	mergeList(names, bufferSize)
+	//Jump will be equal to end if the experiment is for 1 GB
+	if(jump!=end){
+		mergeList(names, bufferSize)
+	}
 	return 0,err
 }
 
