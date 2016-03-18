@@ -1,0 +1,12 @@
+Steps to run for ubuntu:
+https://www.digitalocean.com/community/tutorials/how-to-install-go-1-5-3-on-ubuntu-14-04
+
+clone repo
+
+cd to main folder 
+
+go build
+
+./main -filePath=filepath -jump=intermidiatefilesize -end=sizeofinput 
+-buffer=buffersize
+
